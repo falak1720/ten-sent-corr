@@ -39,7 +39,10 @@ df = sns.load_dataset('iris')
 
 # Literature Review
 
-We will come back to the LR. 
+The iris measurements analyzed here were collected by the botanist Edgar Anderson, who recorded flower dimensions of irises growing on the Gaspé Peninsula [@anderson1935].
+Fisher [-@fisher1936] later used these 150 flowers (50 each of *Iris setosa*, *versicolor*, and *virginica*) to show how several measurements combined can separate species, which made the dataset one of the most widely used examples in statistics.
+Because petal length and petal width are both continuous measurements of the same organ, Pearson's product-moment correlation coefficient [@pearson1895] is the standard way to describe how strongly the two move together.
+
 
 # Method
 
