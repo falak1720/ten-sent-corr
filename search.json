@@ -1,0 +1,16 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "A Demonstration of Correlation Analysis in Python & Quarto",
+    "section": "",
+    "text": "Introduction\n\nimport pandas as pd\nimport numpy as np\n\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\nsns.set_context('talk')\n\ndf = sns.load_dataset('iris')\n\nUsing the iris dataset from seaborn. We have data from 150 flowers. Our research question is to study whether the petal width correlates with petal length.\n\n\nLiterature Review\nWe will come back to the LR.\n\n\nMethod\nGiven that we have two columns of continous data (length of petal and width of petal measured in millimeters) we will evaluate this relationship using simple correlation analysis and also a scatterplot. These two methods are classic and traditional starting points while evaluating data like these.\n\n\nResults\n\ncorr_val = np.array(df[['petal_length', 'petal_width']].corr())[0][1]\n\nnarrative = \"a very strong negative correlation\"\n\nif corr_val &gt; .8:\n  narrative = \"a very strong positive correlation\"\nelif corr_val &gt; .4:\n  narrative = \"a moderate positive correlation\"\nelif corr_val &gt; 0:\n  narrative = \"a positive but weak correlation\"\nelif corr_val &gt; -.4:\n  narrative = \"a moderate negative correlation\"\n\nUsing the class simple Pearson correlation approach these data produce a correlation coefficient of 0.96287; given this result we conclude that the realtionship is a very strong positive correlation.\n\nfig, ax = plt.subplots(figsize=(6, 3.5))\n\nsns.scatterplot(data=df, y='petal_length', x='petal_width')\n\nplt.ylabel('Petal width (mm)')\nplt.xlabel('Petal length (mm)')\n\n\n\n\n\n\n\nFigure 1: A scatterplot of petal length and width\n\n\n\n\n\nAs shown in Figure 1 we see additional evidence of a very strong positive correlation between an iris flower petal length and petal width.\n\n\nDiscussion\nNow that this long standing problem of over 10 minutes is resolved thanks to the deligient efforts of UW-Madison’s DSHB program, science has once again triumped in establishing that the relationship that there is a positivly correlated relationship between iris petal width and iris petal length as a matter of imperically certain ground truth.\n\nsns.lmplot(data=df, x='petal_length' , y='petal_width')\n\nsns.jointplot(x = df['petal_length'], y = df['petal_width'])\n\nsns.jointplot(x = df['petal_length'], y = df['petal_width'], kind= 'hex', color = \"red\")"
+  }
+]
